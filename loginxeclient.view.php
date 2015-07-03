@@ -222,15 +222,14 @@ class loginxeclientView extends loginxeclient
 			//srl이 있다면(로그인 시도)
 			if(isset($output->data->srl))
 			{
-
 				$member_Info = $oMemberModel->getMemberInfoByMemberSrl($output->data->srl);
 				if($config->identifier == 'email_address')
 				{
-					$oMemberController->doLogin($member_Info->email_address,'',false);
+					$oMemberController->doLogin($member_Info->email_address,'',true);
 				}
 				else
 				{
-					$oMemberController->doLogin($member_Info->user_id,'',false);
+					$oMemberController->doLogin($member_Info->user_id,'',true);
 				}
 					//회원정보 변경시 비밀번호 입력 없이 변경 가능하도록 수정
 				$_SESSION['rechecked_password_step'] = 'INPUT_DATA';

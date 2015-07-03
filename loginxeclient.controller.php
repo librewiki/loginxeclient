@@ -218,11 +218,11 @@ class loginxeclientController extends loginxeclient
 
 		if($config->identifier == 'email_address')
 		{
-			$oMemberController->doLogin($args->email_address);
+			$oMemberController->doLogin($args->email_address, $args->password, true);
 		}
 		else
 		{
-			$oMemberController->doLogin($args->user_id);
+			$oMemberController->doLogin($args->user_id, $args->password, true);
 		}
 
 		$_SESSION['rechecked_password_step'] = 'INPUT_DATA';
