@@ -162,7 +162,6 @@ class loginxeclientView extends loginxeclient
 		if($service=='mw')
 		{
 			//받아온 인증키로 바로 회원 정보를 얻어옴
-			$ping_url = 'https://librewiki.net/wiki/%ED%8A%B9%EC%88%98:MWO%EC%9D%B8%EC%A6%9D/identify';
 
 			$ping_header = array();
 			$ping_header['oauth_consumer_key'] = $gConsumerKey;
@@ -170,7 +169,9 @@ class loginxeclientView extends loginxeclient
 			$ping_header['oauth_version'] = '1.0';
 			$ping_header['oauth_nonce'] = md5( microtime() . mt_rand() );
 			$ping_header['oauth_timestamp'] = time();
+			$ping_header['format'] = 'json';
 			$ping_header['oauth_signature_method'] = 'HMAC-SHA1';
+			$ping_url = 'https://librewiki.net/wiki/%ED%8A%B9%EC%88%98:MWO%EC%9D%B8%EC%A6%9D/identify?format=json&oauth_consumer_key='.$ping_header['oauth_consumer_key'].'&oauth_nonce=' . $ping_header['oauth_nonce'] . '&oauth_signature_method='.$ping_header['oauth_signature_method']. '&oauth_timestamp='.$ping_header['oauth_timestamp']. '&oauth_token=' . $ping_header['oauth_token'] . '&oauth_version=' .$ping_header['oauth_version'] . '&title=%ED%8A%B9%EC%88%98:MWO%EC%9D%B8%EC%A6%9D/identify';
 
 			$signature = $this->sign_request( 'GET', $ping_url, $ping_header );
 			$ping_header['oauth_signature'] = $signature;
