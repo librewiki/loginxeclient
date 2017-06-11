@@ -163,7 +163,7 @@ class loginxeclientController extends loginxeclient
                                         if ($val == "Developer") 
                                                 $g_srl = $gval->group_srl;
                                         break;
-                                case "사무관":
+                                case "감독관":
                                         if ($val == "bureaucrat")
                                                 $g_srl = $gval->group_srl;
                                         break;
@@ -175,8 +175,12 @@ class loginxeclientController extends loginxeclient
                                         if ($val == "autoconfirmed")
                                                 $g_srl = $gval->group_srl;
                                         break;
-                                case "관리자":
+                                case "관리관":
                                         if ($val == "sysop")
+                                                $g_srl = $gval->group_srl;
+                                        break;
+			       	case "협동조합 담당자":
+                                        if ($val == "coopservice")
                                                 $g_srl = $gval->group_srl;
                                         break;
                                 }
