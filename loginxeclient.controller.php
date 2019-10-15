@@ -17,7 +17,7 @@ class loginxeclientController extends loginxeclient
 	function triggerLoginxeclientAddMemberMenu()
 	{
 		$logged_info = Context::get('logged_info');
-		if(!Context::get('is_logged')) return new Object();
+		if(!Context::get('is_logged')) return new BaseObject();
 		//$target_srl = Context::get('target_srl');
 
 		$oMemberController = getController('member');
@@ -29,7 +29,7 @@ class loginxeclientController extends loginxeclient
 			//$oMemberController->addMemberPopupMenu($url, '유저 알림 설정', '');
 		}
 
-		return new Object();
+		return new BaseObject();
 	}
 
 	function triggerDisablePWChk($args)
